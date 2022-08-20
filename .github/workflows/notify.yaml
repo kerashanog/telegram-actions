@@ -33,8 +33,7 @@ jobs:
           map_users: >
             { "kerashanog": "@kerashanog",
               "gh-user": "@tg-user",
-              "youtube": "@vid"
-            }
+              "youtube": "@vid" }
           #user: ${{ github.actor }}
           # Github user want to tag in telegram 
           user: 'youtube'
