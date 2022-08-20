@@ -35,4 +35,7 @@ jobs:
         id: opened
         run: echo "::set-output name=status::opened"
       - name: debug
-        run: echo "${{join(steps.*.outputs.status, 'and ')}}"
+        run: echo "${{join(steps.*.outputs.status, ' and ')}}
+      - name: debug-2
+        if: ${{ contains(steps.*.outputs.status, 'review')}}
+        run: echo "${{join(steps.*.outputs.status, ' and request ')}}"
