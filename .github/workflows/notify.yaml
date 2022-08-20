@@ -32,11 +32,12 @@ jobs:
           # Map of github-user:telegram-user
           map_users: >
             { "kerashanog": "@kerashanog",
-              "gh-user": "@tg-user" 
+              "gh-user": "@tg-user",
+              "youtube": "@vid"
             }
           #user: ${{ github.actor }}
           # Github user want to tag in telegram 
-          user: 'gh-user'
+          user: 'youtube'
       # Send mesage to Telegram
       - name: 'Send message to telegram'
         uses: ./
@@ -47,4 +48,4 @@ jobs:
           format: markdown
           message: |
             🎉 **`${{ github.actor }}`** aka ${{ steps.tagged.outputs.reviewer }} send message from 🍻  
-            Repository: ${{ github.repository }}
+            Repository: https://github.com/${{ github.repository }}
