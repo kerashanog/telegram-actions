@@ -32,4 +32,4 @@ jobs:
         id: opened
         run: echo "::set-output name=status::opened"
       - name: debug
-        run: echo "${{tojson(steps.*.outputs.status)}}"
+        run: echo "${{fromjson(steps.*.outputs.status)}}"
