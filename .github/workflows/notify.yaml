@@ -28,8 +28,11 @@ jobs:
       - name: 'closed'
         id: closed
         run: echo "::set-output name=status::closed"
+      - name: 'review'
+        id: review
+        run: echo "::set-output name=status::review"
       - name: 'open'
         id: opened
         run: echo "::set-output name=status::opened"
       - name: debug
-        run: echo "${{tojson(steps.*.outputs.status)}}"
+        run: echo "${{join(steps.*.outputs.status, 'and '}}"
