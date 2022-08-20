@@ -46,7 +46,7 @@ jobs:
                                       🍻 Repository: ${{ github.repository }}      
 ```
 #### Input variables 
-* secrets.TELEGRAM_BOT - is token of your Telegram bot just saved in repository secrets with name TELEGRAM_BOT
-* secrets.TELEGRAM_TO - is user/group/channel id you want bot send message to, just saved this ID in repository secrets with name TELEGRAM_TO
+* secrets.TELEGRAM_BOT - is token of your Telegram bot just saved in repository secrets with name `TELEGRAM_BOT`
+* secrets.TELEGRAM_TO - is user/group/channel id you want bot send message to, just saved this ID in repository secrets with name `TELEGRAM_TO`
 * format - Format of message in `markdown` or `html`. See [MarkdownV2 style](https://core.telegram.org/bots/api#markdownv2-style) 
 * message - Your predefine message
