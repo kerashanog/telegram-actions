@@ -5,8 +5,8 @@ name: Telegram Notify
 # Controls when the workflow will run
 on:
 #  # Triggers the workflow on push or pull request events but only for the "master" branch
-#  push:
-#    branches: [ "main" ]
+  push:
+#    branches: [ "kerashanog/test" ]
 #  pull_request:
 #    branches: [ "main" ]
 
@@ -25,26 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3     
       # Get tagged telegram user from map_users. If you don't want
-      - name: 'Get tagged telegram user'
-        uses: ./
-        id: tagged
-        with:
-          # Map of github-user:telegram-user
-          map_users: >
-            { "kerashanog": "@kerashanog",
-              "gh-user": "@tg-user",
-              "youtube": "@vid" }
-          #user: ${{ github.actor }}
-          # Github user want to tag in telegram 
-          user: 'youtube'
-      # Send mesage to Telegram
-      - name: 'Send message to telegram'
-        uses: ./
-        id: send-message
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_BOT }}
-          format: markdown
-          message: |
-            🎉 **`${{ github.actor }}`** aka ${{ steps.tagged.outputs.reviewer }} send message from 🍻  
-            Repository: https://github.com/${{ github.repository }}
+      - name: 'closed'
+        id: closed
+        run: echo "::set-output name=status::closed"
+      - name: 'open'
+        id: opened
+        run: echo "::set-output name=status::opened"
+      - name: debug
+        run: echo "${{join(steps.*.outputs.status, ', ')}}"
