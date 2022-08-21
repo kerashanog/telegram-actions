@@ -23,7 +23,7 @@ jobs:
             - uses: actions/checkout@v3 
             # Get tagged telegram user from map_users. If you don't want it, mark comments all of this block
             - name: 'Get tagged telegram user' 
-                uses: ./
+                uses: kerashanog/telegram-actions@v0.0.1
                 id: tagged 
                 with: 
                      # Map of github-user:telegram-user 
@@ -35,7 +35,7 @@ jobs:
                       user: 'gh-user' 
                   # Send mesage to Telegram 
             - name: 'Send message to telegram' 
-                uses: ./ 
+                uses: kerashanog/telegram-actions@v0.0.1
                 id: send-message 
                 with: 
                       to: ${{ secrets.TELEGRAM_TO }} 
