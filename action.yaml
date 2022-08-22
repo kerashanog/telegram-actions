@@ -1,6 +1,6 @@
 name: Telegram Notify
 matrix:
-    some: ${{ fromjson(steps.map-user.inputs.user) }}
+    some: ['kerashanog', 'youtube']
 inputs:
   to:
     description: 'telegram group/channel/user id'
@@ -34,8 +34,7 @@ runs:
     - id: map-user
       if: ${{ inputs.map_users }}
       run: | 
-        echo ${{ fromjson(inputs.user) }}
-        echo ${{ fromJSON(inputs.map_users)[inputs.user] }}
+        echo ${{ fromJSON(inputs.map_users)[matrix.some] }}
         echo "::set-output name=reviewer::${{ fromJSON(inputs.map_users)[inputs.user] }}"   
       shell: bash
     - id: send-message
