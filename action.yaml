@@ -1,7 +1,4 @@
 name: Telegram Notify
-strategy:
-    matrix:
-        some: ['kerashanog', 'youtube']
 inputs:
   to:
     description: 'telegram group/channel/user id'
@@ -35,8 +32,7 @@ runs:
     - id: map-user
       if: ${{ inputs.map_users }}
       run: | 
-        echo ${{ tojson(inputs.user)}}
-        echo "::set-output name=reviewer::${{ fromJSON(inputs.map_users)[inputs.user[*]] }}"   
+        echo "::set-output name=reviewer::${{ join(fromJSON(inputs.map_users)[matrix.users], ', ' )}}"   
       shell: bash
     - id: send-message
       if: ${{ inputs.token }}
