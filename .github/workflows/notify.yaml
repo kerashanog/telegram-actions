@@ -25,9 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3     
       # Get tagged telegram user from map_users. If you don't want
-      - name: 'open'
-        id: opened
-        run: echo "::set-output name=status::opened"
+#      - name: 'open'
+#        id: opened
+#        run: echo "::set-output name=status::opened"
 #      - name: 'closed'
 #        id: closed
 #        run: echo "::set-output name=status::closed" 
