@@ -28,12 +28,12 @@ jobs:
       - name: 'open'
         id: opened
         run: echo "::set-output name=status::opened"
-      - name: 'closed'
-        id: closed
-        run: echo "::set-output name=status::closed" 
-      - name: 'merged'
-        id: merged
-        run: echo "::set-output name=status::merged"
+#      - name: 'closed'
+#        id: closed
+#        run: echo "::set-output name=status::closed" 
+#      - name: 'merged'
+#        id: merged
+#        run: echo "::set-output name=status::merged"
       - name: 'review'
         id: review
         run: echo "::set-output name=status::review"
