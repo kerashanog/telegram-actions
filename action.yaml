@@ -1,6 +1,7 @@
 name: Telegram Notify
-matrix:
-    some: ['kerashanog', 'youtube']
+strategy:
+    matrix:
+        some: ['kerashanog', 'youtube']
 inputs:
   to:
     description: 'telegram group/channel/user id'
