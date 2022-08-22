@@ -36,7 +36,7 @@ runs:
       if: ${{ inputs.map_users }}
       run: | 
         echo ${{ matrix.some}}
-        echo "::set-output name=reviewer::${{ fromJSON(inputs.map_users)[inputs.user] }}"   
+        echo "::set-output name=reviewer::${{ fromJSON(inputs.map_users)[inputs.user[*]] }}"   
       shell: bash
     - id: send-message
       if: ${{ inputs.token }}
