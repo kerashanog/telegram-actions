@@ -35,7 +35,7 @@ runs:
     - id: map-user
       if: ${{ inputs.map_users }}
       run: | 
-        echo ${{ fromJSON(inputs.map_users)[matrix.some] }}
+        echo ${{ matrix.some}}
         echo "::set-output name=reviewer::${{ fromJSON(inputs.map_users)[inputs.user] }}"   
       shell: bash
     - id: send-message
