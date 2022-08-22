@@ -1,6 +1,6 @@
 name: Telegram Notify
 matrix:
-    some: ${{ fromjson(inputs.user) }}
+    some: [""]
 inputs:
   to:
     description: 'telegram group/channel/user id'
