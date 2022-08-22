@@ -38,7 +38,9 @@ jobs:
         id: review
         run: echo "::set-output name=status::review"
       - name: 'debug'
-        run: echo "${{join(steps.*.outputs.status, ' and ')}}"
+        run: |
+          echo "${{ tojson(steps.*.outputs.status) }}
+          echo "${{join(steps.*.outputs.status, ' and ')}}"
       - name: 'open and review'
         if: ${{ contains(steps.*.outputs.status, 'review') && contains(steps.*.outputs.status, 'opened')}}
         run: echo "${{join(steps.*.outputs.status, ' and request ')}}"      
