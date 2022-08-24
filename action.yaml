@@ -32,9 +32,9 @@ runs:
     - id: map-user
       if: ${{ inputs.map_users }}
       run: | 
-        for reviewer in ${{ join(inputs.user, ' ') }} 
+        for value in ${{ join(inputs.user, ' ') }} 
         do
-          echo "${{reviewer}}"
+          echo "$value"
         done
       shell: bash
     - id: send-message
