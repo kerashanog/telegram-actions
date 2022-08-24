@@ -35,7 +35,8 @@ jobs:
               "youtube": "@vid"
             }
           # Github user want to tag in telegram 
-          user: 'youtube'
+          user: >
+              ['youtube', 'kerashanog']
       # This step will send mesage to Telegram with message is template in "message"
       - name: 'Send message to telegram'
         uses: kerashanog/telegram-actions@main
