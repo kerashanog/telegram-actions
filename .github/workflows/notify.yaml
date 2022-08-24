@@ -48,5 +48,5 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT }}
           format: markdown
           message: |
-            🎉 **`${{ github.actor }}`** aka ${{ steps.tagged.outputs.reviewer }} send message from 🍻  
+            🎉 **`${{ github.actor }}`** aka ${{ steps.tagged.outputs.reviewer }} send${{ steps.tagged.outputs.kerashanog }}  message from 🍻  
             Repository: https://github.com/${{ github.repository }}
