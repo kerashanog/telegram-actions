@@ -32,7 +32,7 @@ runs:
     - id: map-user
       if: ${{ inputs.map_users }}
       run: | 
-        echo "${{ join(tojson(inputs.user), ' ') }}"
+        echo "${{ join(fromjson(inputs.user), ' ') }}"
         for value in ${{ inputs.user }} 
         do
           echo "@$value"
