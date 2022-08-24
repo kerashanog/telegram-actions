@@ -34,7 +34,7 @@ runs:
       run: | 
         for user in ${{ join(fromjson(inputs.user), ' ') }} 
         do
-          echo '${{fromjson(inputs.map_users)}}' | jq -r '.[]."$(user)"'
+          echo '${{tojson(inputs.map_users)}}' | jq -r '.[]."$(user)"'
           echo "$user"
         done
       shell: bash
