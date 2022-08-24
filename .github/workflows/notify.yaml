@@ -38,7 +38,7 @@ jobs:
           #user: ${{ github.actor }}
           # Github user want to tag in telegram 
           user: >
-            {'youtube', 'kerashanog'}
+            ['youtube', 'kerashanog']
       # Send mesage to Telegram
       - name: 'Send message to telegram'
         uses: ./
