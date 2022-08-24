@@ -34,7 +34,7 @@ runs:
       run: | 
         for value in ${{ join(inputs.user, ' ') }} 
         do
-          echo "$value"
+          echo "@$value"
         done
       shell: bash
     - id: send-message
