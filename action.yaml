@@ -25,7 +25,7 @@ inputs:
 outputs:
   reviewer:
     description: 'Tagged Telegram user'
-    value: ${{ join(steps.map-user.outputs.*, ', ') }}
+    value: ${{ tojson(steps.map-user.outputs.*) }}
 runs:
   using: "composite"
   steps:    
