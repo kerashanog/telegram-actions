@@ -33,7 +33,7 @@ runs:
       if: ${{ inputs.map_users }}
       run: | 
         echo "${{ join(fromjson(inputs.user), ' ') }}"
-        for value in ${{ inputs.user }} 
+        for value in ${{ join(fromjson(inputs.user), ' ') }} 
         do
           echo "@$value"
         done
