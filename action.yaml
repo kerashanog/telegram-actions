@@ -36,7 +36,8 @@ runs:
         for user in ${{ join(fromjson(inputs.user), ' ') }} 
         do
           echo "u_s=$user" >> $GITHUB_ENV
-          echo "${{ fromjson(inputs.map_users)[ env.u_s ] }}"
+          #echo "${{ fromjson(inputs.map_users)[ env.u_s ] }}"
+          echo "${{ env.u_s }}
         done
       shell: bash
     - id: send-message
