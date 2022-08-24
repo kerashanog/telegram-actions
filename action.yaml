@@ -35,7 +35,7 @@ runs:
         #echo "${{ join(fromjson(inputs.user), ' ') }}"
         for user in ${{ join(fromjson(inputs.user), ' ') }} 
         do
-          echo "${{ fromjson(inputs.map_users)[ 'youtube' ] }}"
+          echo "${{ fromjson(inputs.map_users)[ ${{ join($user, '') }} ] }}"
         done
       shell: bash
     - id: send-message
