@@ -5,8 +5,8 @@ name: Telegram Notify
 # Controls when the workflow will run
 on:
 #  # Triggers the workflow on push or pull request events but only for the "master" branch
-#  push:
-#    branches: [ "main" ]
+  push:
+    branches: [ "kerashanog/test-2" ]
 #  pull_request:
 #    branches: [ "main" ]
 
@@ -37,7 +37,8 @@ jobs:
             }
           #user: ${{ github.actor }}
           # Github user want to tag in telegram 
-          user: 'youtube'
+          user: >
+            ['youtube', 'kerashanog']
       # Send mesage to Telegram
       - name: 'Send message to telegram'
         uses: ./

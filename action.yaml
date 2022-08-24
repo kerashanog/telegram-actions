@@ -25,14 +25,18 @@ inputs:
 outputs:
   reviewer:
     description: 'Tagged Telegram user'
-    value: ${{ steps.map-user.outputs.reviewer }}
+    value: ${{ join(steps.map-user.outputs.*, ', ') }}
 runs:
   using: "composite"
   steps:    
     - id: map-user
       if: ${{ inputs.map_users }}
       run: | 
-        echo "::set-output name=reviewer::${{ fromJSON(inputs.map_users)[inputs.user] }}"   
+        for user in ${{ join(fromjson(inputs.user), ' ') }} 
+        do
+          echo "::set-output name=$user::$(echo '${{tojson(fromjson(inputs.map_users))}}' | jq -r --arg key "$user" '.[$key]')"
+      
+        done
       shell: bash
     - id: send-message
       if: ${{ inputs.token }}
