@@ -35,7 +35,6 @@ runs:
         #echo "${{ join(fromjson(inputs.user), ' ') }}"
         for user in ${{ join(fromjson(inputs.user), ' ') }} 
         do
-          #echo "${{ fromjson(inputs.map_users)[}} $user ${{] }}"
           echo "$(user)"
         done
       shell: bash
