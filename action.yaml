@@ -35,7 +35,7 @@ runs:
         echo "${{ join(fromjson(inputs.user), ' ') }}"
         for value in ${{ join(fromjson(inputs.user), ' ') }} 
         do
-          echo "fromJSON(inputs.map_users)[$value]"
+          echo "fromJSON(inputs.map_users)['youtube']"
 #          echo "::set-output name='$value'::${{ fromJSON(inputs.map_users)['$value'] }}"
         done
       shell: bash
