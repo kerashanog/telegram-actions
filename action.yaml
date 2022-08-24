@@ -36,7 +36,7 @@ runs:
         for value in ${{ join(fromjson(inputs.user), ' ') }} 
         do
           echo "$value"
-          echo "${{ tojson(inputs.map_users) }}"
+          echo "${{ fromjson(inputs.map_users)[kerashanog] }}"
         done
       shell: bash
     - id: send-message
