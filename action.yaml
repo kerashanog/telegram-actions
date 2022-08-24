@@ -34,8 +34,8 @@ runs:
       run: | 
         for user in ${{ join(fromjson(inputs.user), ' ') }} 
         do
-          echo '${{tojson(fromjson(inputs.map_users))}}' | jq -r --arg key "$user" '.[$key]'
-          echo "$user"
+          echo "::set_output name=$user::$(echo '${{tojson(fromjson(inputs.map_users))}}' | jq -r --arg key "$user" '.[$key]')"
+      
         done
       shell: bash
     - id: send-message
