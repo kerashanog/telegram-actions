@@ -32,10 +32,10 @@ runs:
     - id: map-user
       if: ${{ inputs.map_users }}
       run: | 
-        echo "${{ join(fromjson(inputs.user), ' ') }}"
-        for value in ${{ join(fromjson(inputs.user), ' ') }} 
+        #echo "${{ join(fromjson(inputs.user), ' ') }}"
+        for user in ${{ join(fromjson(inputs.user), ' ') }} 
         do
-          echo "${{ fromjson(inputs.map_users)['$value'] }}"
+          echo "${{ fromjson(inputs.map_users)[$user] }}"
         done
       shell: bash
     - id: send-message
