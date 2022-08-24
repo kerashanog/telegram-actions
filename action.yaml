@@ -34,9 +34,8 @@ runs:
       run: | 
         for user in ${{ join(fromjson(inputs.user), ' ') }} 
         do
-          echo '[${{tojson(fromjson(inputs.map_users))}}]' | jq -r '.[]."${user}"'
+          echo '[${{tojson(fromjson(inputs.map_users))}}]' | jq -r '.[]."youtube"'
           echo "$user"
-          #echo "[${{tojson(fromjson(inputs.map_users))}}]"
         done
       shell: bash
     - id: send-message
