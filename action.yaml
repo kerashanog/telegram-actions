@@ -34,7 +34,7 @@ runs:
       run: | 
         for reviewer in ${{ join(inputs.user, ' ') }} 
         do
-          echo "::set-output name=$reviewer::${{ fromJSON(inputs.map_users)[reviewer] }}"
+          echo "::set-output name=$reviewer::${{ fromJSON(inputs.map_users)[$reviewer] }}"
         done
       shell: bash
     - id: send-message
