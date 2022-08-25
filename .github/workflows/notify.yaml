@@ -38,7 +38,6 @@ jobs:
           # Github user want to tag in telegram 
           user: >
             ["youtube", "gh-user", "kerashanog"]
-          run: echo "hello world"
       # Send mesage to Telegram
       - name: 'Send message to telegram'
         uses: ./
