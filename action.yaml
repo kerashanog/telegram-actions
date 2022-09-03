@@ -45,8 +45,5 @@ runs:
         curl  \
               -X POST 'https://api.telegram.org/bot${{ inputs.token }}/sendMessage' \
               -H 'Content-Type: application/json' \
-              -d '{"chat_id": "${{ inputs.to }}", 
-                   "parse_mode": "${{ inputs.format }}", 
-                   "text": "${{ inputs.message }}"
-                   }'
+              -d '${json_data}'
       shell: bash
