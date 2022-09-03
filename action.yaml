@@ -41,7 +41,7 @@ runs:
     - id: send-message
       if: ${{ inputs.token }}
       run: |
-        read msg <<< "sd fsdg hrewt kk"
+        read msg <<< "${{ inputs.message }}" 
         echo $msg
         curl  --silent --output /dev/null --show-error --fail \
               -X POST 'https://api.telegram.org/bot${{ inputs.token }}/sendMessage' \
