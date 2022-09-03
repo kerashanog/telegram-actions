@@ -47,5 +47,5 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT }}
           format: markdown
           message: |
-            🎉 **`${{ github.actor }}`** aka "'} send message from 🍻  
+            🎉 **`${{ github.actor }}`** aka send message from 🍻  
             Repository: https://github.com/${{ github.repository }}
