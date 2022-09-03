@@ -40,12 +40,6 @@ jobs:
             ["youtube", "gh-user", "kerashanog"]
       # Send mesage to Telegram
       - name: 'Send message to telegram'
-        uses: ./
-        id: send-message
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_BOT }}
-          format: markdown
-          message: |
-            🎉 **`${{ github.actor }}`** aka "'} send message from 🍻  
-            Repository: https://github.com/${{ github.repository }}
+        run: |
+          json_msg=$( ${{ inputs.message }} | sed "s/[\{\'\"!@#[$%^&*()-]/\\\&/g" )
+          echo "$json_msg"
