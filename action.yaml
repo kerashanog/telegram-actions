@@ -47,6 +47,6 @@ runs:
               -H 'Content-Type: application/json' \
               -d '{ "chat_id": "${{ inputs.to }}", 
                     "parse_mode": "${{ inputs.format }}", 
-                    "text": "${{ inputs.message }}" 
+                    "text": "$msg" 
                   }'
       shell: bash
