@@ -41,7 +41,7 @@ runs:
     - id: send-message
       if: ${{ inputs.token }}
       run: |
-        json_msg=$( ${{ inputs.message }} | sed 's/[^[:alnum:]]/\\&/g' )
+        json_msg=$( ${{ inputs.message }} | sed 's/'/"/[^[:alnum:]]/\\&/g' )
         echo "$json_msg"
         curl  \
               -X POST 'https://api.telegram.org/bot${{ inputs.token }}/sendMessage' \
