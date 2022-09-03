@@ -37,7 +37,7 @@ jobs:
             }
           # Github user want to tag in telegram 
           user: >
-            ["youtube", "gh-user", "kerashanog"]
+            ["kerashanog"]
       # Send mesage to Telegram
       - name: 'Send message to telegram'
         uses: ./
@@ -45,7 +45,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_BOT }}
-          format: markdown
+          format: markdownv2
           message: |
-            🎉 **`${{ github.actor }}`** aka ${{ steps.tagged.outputs.reviewer }} send message == ! @ $ from 🍻  
+            🎉 **`${{ github.actor }}`** aka ${{ steps.tagged.outputs.reviewer }} send message == ! @ $}' from 🍻  
             Repository: https://github.com/${{ github.repository }}
