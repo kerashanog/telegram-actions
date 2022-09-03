@@ -41,7 +41,7 @@ runs:
     - id: send-message
       if: ${{ inputs.token }}
       run: |
-        printf -v msger ${{ inputs.message }}
+        printf -v msger "%q" ${{ inputs.message }}
         json_data="$( jq -R -nc --arg to '${{ inputs.to }}' --arg parse_mode '${{ inputs.format }}' --arg msg '$msger' '{"chat_id": $to, "parse_mode": $parse_mode, "text": $msg}' )"
         echo "${json_data}"
         curl  \
