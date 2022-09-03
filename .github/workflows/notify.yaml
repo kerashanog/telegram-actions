@@ -45,7 +45,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_BOT }}
-          format: markdownv2
+          format: MarkdownV2
           message: |
             🎉 **`${{ github.actor }}`** aka ${{ steps.tagged.outputs.reviewer }} send message == ! @ $ from 🍻  
             Repository: https://github.com/${{ github.repository }}
