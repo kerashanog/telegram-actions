@@ -41,11 +41,13 @@ runs:
     - id: send-message
       if: ${{ inputs.token }}
       run: |
-        printf -v msger "%q" ${{ inputs.message }}
-        json_data="$( jq -R -nc --arg to '${{ inputs.to }}' --arg parse_mode '${{ inputs.format }}' --arg msg '$msger' '{"chat_id": $to, "parse_mode": $parse_mode, "text": $msg}' )"
-        echo "${json_data}"
+        printf -v msg "%q" ${{ inputs.message }}
+        echo "${msg}"
         curl  \
               -X POST 'https://api.telegram.org/bot${{ inputs.token }}/sendMessage' \
               -H 'Content-Type: application/json' \
-              -d \"${json_data}\"
+              -d '{ "chat_id": "${{ inputs.to }}", 
+                    "parse_mode": "${{ inputs.format }}", 
+                    "text": "${{ inputs.message }}" 
+                  }'
       shell: bash
