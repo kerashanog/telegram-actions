@@ -41,13 +41,11 @@ runs:
     - id: send-message
       if: ${{ inputs.token }}
       run: |
-        json_msg=$( ${{ inputs.message }} | sed "s/[\{\'\"!@#[$%^&*()-]/\\\&/g" )
-        echo "$json_msg"
         curl  \
               -X POST 'https://api.telegram.org/bot${{ inputs.token }}/sendMessage' \
               -H 'Content-Type: application/json' \
               -d '{ "chat_id": "${{ inputs.to }}", 
                     "parse_mode": "${{ inputs.format }}", 
-                    "text": "$json_msg" 
+                    "text": "${{ inputs.message }}" 
                   }'
       shell: bash
