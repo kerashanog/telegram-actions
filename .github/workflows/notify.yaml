@@ -24,4 +24,4 @@ jobs:
     steps:
       - name: 'debug'
         run: |
-          echo $( "asf ewoi `kjeosf` "'} #@)&&* " | sed "s/[\{\'\"!@#[$%^&*()-]/\\\&/g" )
+          echo $( "asf ewoi `kjeosf` { #@)&&* " | sed "s/[\{\'\"!@#[$%^&*()-]/\\\&/g" )
