@@ -43,7 +43,7 @@ runs:
       run: |
         json_data="$( jq -nc --arg to "${{ inputs.to }}" parse_mode "${{ inputs.format }}" msg "${{ inputs.message }}" '{"chat_id": $to, "parse_mode": $parse_mode, $"text": $msg}' )"
         echo "$json_data"
-        curl  --silent --output /dev/null --show-error --fail \
+        curl  \
               -X POST 'https://api.telegram.org/bot${{ inputs.token }}/sendMessage' \
               -H 'Content-Type: application/json' \
               -d '${json_data}'
