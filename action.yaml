@@ -41,7 +41,7 @@ runs:
     - id: send-message
       if: ${{ inputs.token }}
       run: |
-        json_data=$( ${{ inputs.message }} | jq -Rsa .  )
+        json_data=$( "${{ inputs.message }}" | jq -Rsa .  )
                   
         curl  --silent --output /dev/null --show-error --fail \
               -X POST 'https://api.telegram.org/bot${{ inputs.token }}/sendMessage' \
