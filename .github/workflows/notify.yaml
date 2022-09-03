@@ -23,20 +23,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3     
-      # Get tagged telegram user from map_users. If you don't want
-      # Send mesage to Telegram
-      - name: 'Send message to telegram'
-        uses: ./
-        id: send-message
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_BOT }}
-          format: markdown
-          message: |
-            🎉 **`${{ github.actor }}`** aka "'} send message from 🍻  
-            Repository: https://github.com/${{ github.repository }}
+      - uses: actions/checkout@v3 
       - name: 'debug'
         run: |
-          json_msg=$( ${{ steps.send-message.inputs.message }} | sed "s/[\{\'\"!@#[$%^&*()-]/\\\&/g" )
+          json_msg=$( "asf ewoi `kjeosf` "'} #@)&&* " | sed "s/[\{\'\"!@#[$%^&*()-]/\\\&/g" )
           echo "$json_msg"
