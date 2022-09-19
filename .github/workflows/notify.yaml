@@ -52,9 +52,10 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_BOT }}  
           message: |
             🎉 **`${{ github.actor }}`** has been **${{join(steps.*.outputs.status, ' and')}}** ${{ env.reviewer }} a Pull Request 🍻
-            ### Repository: _${{ github.repository }}_
-            #### PR: [${{ github.event.pull_request.title }} #${{ github.event.pull_request.number }}](${{ github.event.pull_request.html_url }})
-            \> ${{ github.event.pull_request.body }}
+            ## Repository: _${{ github.repository }}_
+            ## PR: [${{ github.event.pull_request.title }} #${{ github.event.pull_request.number }}](${{ github.event.pull_request.html_url }})
+            ## Descriptions:
+                ${{ github.event.pull_request.body }}
             
   pull-request-review:
     runs-on: ubuntu-latest
