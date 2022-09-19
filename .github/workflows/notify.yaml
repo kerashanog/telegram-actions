@@ -2,11 +2,11 @@ name: Telegram notify
 on:
   pull_request:
     branches:    
-    - master
+    - main
     types: [opened, reopened, review_requested, closed]
   pull_request_review:
     branches:    
-    - master
+    - main
     types: submitted
 jobs:
   pull-request-notify:
