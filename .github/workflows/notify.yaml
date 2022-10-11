@@ -16,27 +16,13 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  notify:
+  notify-1:
     # The type of runner that the job will run on
     runs-on: keras-runner
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3     
-      # Get tagged telegram user from map_users. If you don't want
-      - name: 'Get tagged telegram user'
-        uses: ./
-        id: tagged
-        with:
-          # Map of github-user:telegram-user
-          map_users: >
-            { "kerashanog": "@kerashanog",
-              "gh-user": "@tg-user",
-              "youtube": "@vid"
-            }
-          # Github user want to tag in telegram 
-          user: >
-            ["youtube", "gh-user", "kerashanog"]
       # Send mesage to Telegram
       - name: 'Send message to telegram'
         uses: ./
@@ -46,5 +32,22 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT }}
           format: markdown
           message: |
-            🎉 **`${{ github.actor }}`** aka ${{ steps.tagged.outputs.reviewer }} send message from 🍻  
+            🎉 **`${{ github.actor }}`** send message from job-notify-1 🍻  
             Repository: https://github.com/${{ github.repository }}
+  notify-2:
+    # The type of runner that the job will run on
+    runs-on: keras-runner
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3     
+      # Send mesage to Telegram
+      - name: 'Send message to telegram'
+        uses: ./
+        id: send-message
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_BOT }}
+          format: markdown
+          message: |
+            🎉 **`${{ github.actor }}`** send job-notify-2 🍻  
