@@ -34,8 +34,7 @@ jobs:
           format: markdown
           message: |
             🎉 **`${{ github.actor }}`** send message from Job-1 🍻  
-            Repository: https://github.com/${{ github.repository }}
-			
+            Repository: https://github.com/${{ github.repository }}			
   notify-2:
     # The type of runner that the job will run on
     runs-on: keras-runner
